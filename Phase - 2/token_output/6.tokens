@@ -1,0 +1,298 @@
+inbuilt datatype: number
+Identifier: num_threads
+PUNCTUATION: ,
+Identifier: k
+PUNCTUATION: ,
+Identifier: lam1
+PUNCTUATION: ,
+Identifier: lam2
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: sum
+operator: =
+Constant: 0
+PUNCTUATION: ,
+Identifier: max_wait
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: array number
+Identifier: waiting
+Special Symbol: [
+Constant: 1000
+Special Symbol: ]
+PUNCTUATION: ;
+atomic inbuilt datatype: atomic number
+Identifier: bounded_cas_lock
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: type
+Userdefined Datatype: ThreadData_op
+Special Symbol: <<
+inbuilt datatype: decimal
+Identifier: result_count
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: array text
+Identifier: result
+Special Symbol: [
+Constant: 1000
+Special Symbol: ]
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: waiting_time_count
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: array decimal
+Identifier: waiting_time
+Special Symbol: [
+Constant: 1000
+Special Symbol: ]
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: type
+Userdefined Datatype: thread_data_ip
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: thread_num
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: t1
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: t2
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: func
+Identifier: entry_sec
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: id
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: exp_val
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: new_val
+operator: =
+Constant: 1
+PUNCTUATION: ;
+inbuilt datatype: bool
+Identifier: key
+operator: =
+Constant: false
+PUNCTUATION: ;
+Identifier: waiting
+Special Symbol: [
+Special Symbol: (
+Identifier: id
+operator: -
+Constant: 1
+Special Symbol: )
+Special Symbol: ]
+operator: =
+Constant: 1
+PUNCTUATION: ;
+reserved keyword: repeat
+Special Symbol: [
+Special Symbol: (
+Special Symbol: (
+Identifier: waiting
+Special Symbol: [
+Identifier: id
+operator: -
+Constant: 1
+Special Symbol: ]
+operator: ==
+Constant: 1
+Special Symbol: )
+operator: &&
+Special Symbol: (
+Identifier: key
+operator: ==
+Constant: false
+Special Symbol: )
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+Identifier: key
+operator: =
+reserved keyword: invoke
+Identifier: bounded_cas_lock
+operator: ->
+Identifier: compare_exchange_strong
+PUNCTUATION: :
+Identifier: exp_val
+PUNCTUATION: ,
+Identifier: new_val
+PUNCTUATION: :
+PUNCTUATION: ;
+Identifier: exp_val
+operator: =
+Constant: 0
+PUNCTUATION: ;
+Identifier: new_val
+operator: =
+Constant: 1
+PUNCTUATION: ;
+Special Symbol: >>
+Identifier: waiting
+Special Symbol: [
+Identifier: id
+operator: -
+Constant: 1
+Special Symbol: ]
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: return
+inbuilt datatype: void
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: func
+Identifier: testCS
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: id
+PUNCTUATION: ,
+inbuilt datatype: number
+Identifier: t1
+PUNCTUATION: ,
+inbuilt datatype: number
+Identifier: t2
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: k
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: op
+PUNCTUATION: :
+Identifier: i
+Special Symbol: #
+Constant: "th Request by thread: "
+Special Symbol: #
+Identifier: id
+operator: ->
+Constant: "output.txt"
+PUNCTUATION: ;
+reserved keyword: sleep
+Special Symbol: (
+Constant: 2
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Identifier: i
+Special Symbol: #
+Constant: "th Request by thread: "
+Special Symbol: #
+Identifier: id
+Special Symbol: #
+Constant: "is served"
+operator: ->
+Constant: "output.txt"
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: return
+inbuilt datatype: void
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: task
+Identifier: do_parallel
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: t1
+PUNCTUATION: ,
+inbuilt datatype: number
+Identifier: t2
+Special Symbol: <<
+reserved keyword: invoke
+Identifier: testCS
+PUNCTUATION: :
+reserved keyword: tid
+PUNCTUATION: ,
+Identifier: t1
+PUNCTUATION: ,
+Identifier: t2
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: start
+Special Symbol: <<
+reserved keyword: ip
+operator: ->
+Constant: "inp.txt"
+PUNCTUATION: :
+Identifier: num_threads
+PUNCTUATION: ,
+Identifier: k
+PUNCTUATION: ,
+Identifier: lam1
+PUNCTUATION: ,
+Identifier: lam2
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: rc
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Constant: 1000
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+Identifier: waiting
+Special Symbol: [
+Identifier: i
+Special Symbol: ]
+operator: =
+Constant: 0
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: make parallel
+Identifier: do_parallel
+PUNCTUATION: :
+Identifier: num_threads
+PUNCTUATION: :
+Identifier: k
+PUNCTUATION: :
+Identifier: lam1
+PUNCTUATION: ,
+Identifier: lam2
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>

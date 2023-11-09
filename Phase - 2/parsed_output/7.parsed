@@ -1,0 +1,58 @@
+
+
+array decimal times_threads[60, 10]; : declaration statement 
+decimal max_time = -1; : declaration statement         
+number N = 0; : declaration statement                    
+number K = 0; : declaration statement                    
+number lamb1 = 0; : declaration statement                
+number lamb2 = 0; : declaration statement                
+atomic bool flag ; : declaration statement
+
+func tas_enter: null : void : function declaration statement
+<<
+  repeat[invoke flag->f:null:] : loop statement
+  <<
+  
+  >>
+  return void; : return statement
+>>
+
+func tas_exit: null : void : function declaration statement
+<<
+  invoke flag->clear:null: ; : call statement
+  return void; : return statement
+>>
+
+func tas: number tno :void : function declaration statement
+<<
+  for[number i = 0 | (i < K) | i += 1] : loop statement
+  <<
+    invoke tas_enter: null : ; : call statement
+    number j = (i + 1) ; : declaration statement
+    op: j # "th CS Requested by thread number: " # tno -> "tas_output" ; : print statement 
+    times_threads [i,i+3] = (K * i) ; : assignment statement
+    invoke tas_exit: null : ; : call statement
+  >>
+>>
+
+task do_parallel: null : task declaration statement
+<<
+  invoke tas: tid : ; : call statement
+>>
+
+start 
+<<
+  ip->"inp-params.txt" : N , K, lamb1, lamb2 ; : scan statement
+  op: N # " " # K # " " # lamb1 # " " # lamb2 ; : print statement
+
+  make parallel tas: N : K : null : ; : call statement
+  decimal sum = ((sum)/(N*K)); : declaration statement
+  op:  "The average time for " # N # " threads in microseconds is : " # sum ; : print statement
+>>
+
+
+
+
+
+
+

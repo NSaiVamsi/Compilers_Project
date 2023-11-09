@@ -1,0 +1,224 @@
+$$ Global variables
+number K;
+number N;
+number n;
+
+array number sudoko[100,100]; $$ In this vector array the sudoko is stored
+
+type datak
+<<
+  number tno ;
+  text typee ;
+>>
+
+type return_single
+<<
+  text str ; $$ This stores the log data of the single check
+  bool valid;
+
+  func compare : number a, number b : bool
+  <<
+    when[(in->str == "Hi")]
+    <<
+      valid = false ;
+    >>
+  return ~(valid) ;
+  >>
+>>
+
+type return_full
+<<
+  array text a[300] ; $$ This vector stores all the logs by a thread
+  bool valid ; $$ This variable stores the output check of the full thread .. i.e combining the effect of all the returns of checks
+>>
+
+$$ The following function checks if the newly added values already exists or not
+
+func check_if_present : array number check_value, number index, number value : bool 
+<<
+
+  bool ret = false;
+  for[number i = 0 | (i < index) | i+=1]
+  <<
+    when[( check_value[i] == value)] 
+    <<
+      ret = true;
+      break;
+    >>
+  >>
+  return ret;
+>>
+
+$$ The following functions checks if the given row/column/grid is valid/not
+
+func check_given_values : number I , number J , number tno , text typee : return_single 
+<<
+  array number check_values[N];
+  number check = 1;
+  number index = 0;
+  number num = 0; $$ This variable stores the value of the number row/column/grid
+  when[(typee == "row")]
+  <<
+    num = (I + 1);
+    for[number j = 0 | (j < N) | j +=1]
+    <<
+      when[invoke check_if_present : check_values,index,sudoko[I,j] :]
+      <<
+        check = 0;
+        break;
+      >>
+      default
+      <<
+        check_values[index] = sudoko[I,j];
+        index += 1;
+      >>
+    >>
+  >>
+
+  <<
+    number a = 9;
+    a *= 10 ;
+  >>
+
+  when[(typee == "column")]
+  <<
+    num = (J + 1);
+    for[number i = 0 | (i < N) | i +=1]
+    <<
+      when[invoke check_if_present : check_values,index,sudoko[i,J] : ]
+      <<
+        check = 0;
+        break;
+      >>
+      default
+      <<
+        check_values[index] = sudoko[i,J];
+        index += 1;
+      >>
+    >>
+  >>
+  else when[(typee == "grid")]
+  <<
+    num = (J/n + 1 + I) ;
+    for[number i=0 | (i < n) | i+=1]
+    <<
+      for[number j=0 | (j < n) | j+=1]
+      <<  
+        when[invoke check_if_present: check_values, index, sudoko[I+i,J+j] : ]
+        <<
+          check = 0;
+          break;
+        >>
+        default 
+        <<
+          check_values[index] = sudoko[I+i,J+j];
+          index += 1;
+        >>
+      >>
+    >>
+  >>
+
+  return_single r ;
+  text str = "";
+  str = ("Thread" # tno # " checks " # typee # " " # numberrr # " and is ") ;
+  when[(check == 0)]
+  <<
+    str = (str # "invalid") ;
+    r->valid = false ;
+  >>
+  default
+  <<
+    str = (str # "valid");
+    r->valid = true ;
+  >>
+
+  r->str = str;
+  return r;
+>>
+
+$$ The following function schedules task to the thread
+func function : datak dat : void
+<<
+
+  ret->valid = true;
+  when[(dat->typee == "row")]
+  <<
+    for[number I = (dat->tno - 1) | (I < N) | I += K]
+    <<
+      return_single r = invoke check_given_values:0,J,(dat->tno),(dat->typee):;
+     $$ ret->a[1] = (r->str) ;
+      ret->valid = (ret->valid && r->valid);
+    >>
+  >>
+  else when[(dat->typee == "column")]
+  <<
+    for[number J = (dat->tno - 1) | (J < N) | J += K]
+    <<
+      return_single r = invoke check_given_values:0,J,(dat->tno),(dat->typee):;
+     $$ ret->a[1] = r->str ;
+      ret->valid = (ret->valid && r->valid);
+    >>
+  >>
+  else when[(dat->typee == "grid")]
+  <<
+    array number I[N]; $$ x[k] represents i value of kth grid
+    array number J[N]; $$ y[k] represents j value of kth grid
+    for[number i=0 | (i < n) | i += 1]
+    <<
+      for[ number j=0 | (j < n) | j += 1]
+      <<
+        I[(N*j + i)] = (n * j) ;
+        J[(N*j + i)] = (n * i) ;
+      >>
+    >>
+
+    for[number grid_no = (dat->tno) | (grid_no <= N) | grid_no += K]
+    <<
+      return_single r = invoke check_given_values:0,J,(dat->tno),(dat->typee) :;
+      $$ ret->a[1] = r->str ;
+      ret->valid = (ret->valid && r->valid);
+    >>
+  >>
+
+  return void;
+>>
+
+task finder : null
+<<
+  datak dat ;
+  dat->tno = tid ;
+  dat->typee = "row" ;
+  invoke function : dat :;
+>>
+
+start 
+<<
+  ip->"input.txt": K, N ;
+  n = (N^(1.0/2));
+  for[number i = 0 | (i < N) | i += 1]
+  <<
+    array number temp[1000];
+    for[number j = 0 | (j < N) | j += 1]
+    <<
+      number val = 0;
+      ip->"input.txt": val ;
+      temp[j] = val ;
+    >>
+  sudoko[i] = temp ;
+  >>
+
+  make parallel finder:K:10: null :;
+  decimal timee = get->time;
+
+  $$ Writing to output file
+  op: "Total time taken is: " # timee ;
+  text s = "output_pthread.txt" ;
+  when[(sudoko_check == false)]
+  <<
+    op: "sudoko is invalid" -> s ;
+  >>
+  default
+  <<
+    op: "sudoko is valid" -> s ;
+  >>
+>>

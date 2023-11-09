@@ -1,0 +1,116 @@
+
+
+
+type data : type declaration statement
+<<
+  number total_cases_each_thread ; : declaration statement 
+  number threadnumber ; : declaration statement 
+>>
+
+
+func check_in_circle : decimal x, decimal y : bool : function declaration statement 
+<<
+  when [(x^2 + y^2 - 1 < 0)] : conditional statement 
+  <<
+    return true; : return statement
+  >>
+  default : conditional statement << 
+    return false; : return statement
+  >>
+>>
+
+
+
+func func_pi : data dat : void : function declaration statement 
+<<
+
+  
+  
+
+
+
+  array decimal mem[1000]; : declaration statement
+  mem[0] = (dat->total_cases_each_thread) ; : assignment statement
+  number number_of_points_in_circle = 0; : declaration statement
+  decimal x = 0, y = 0; : declaration statement
+  for[number i = 0| (i < (dat->total_cases_each_thread)) | i+= 1 ] : loop statement
+  <<
+  x = (invoke rand : null : + 2001 ); : assignment statement
+    x = ((invoke rand:null : % 2001 - 1000) / 1000 )  ; : assignment statement
+    y = ((invoke rand:null : % 2001 - 1000) / 1000 ) ; : assignment statement
+    mem[(4*i+2)] = x; : assignment statement
+    mem[(4*i+3)] = y; : assignment statement
+
+    when[invoke check_in_circle:x,y:] : conditional statement
+    <<
+      number_of_points_in_circle += 1; : expression statement
+      mem[(4*i+4)] = x; : assignment statement
+      mem[(4*i+5)] = y; : assignment statement
+    >>
+    default : conditional statement
+    <<  
+      mem[(4*i+4)] = -2.0; : assignment statement
+      mem[(4*i+5)] = -2.0; : assignment statement
+    >>
+  >>
+  mem[1] = number_of_points_in_circle ; : assignment statement
+  return void; : return statement
+>>
+
+task para: array number total_cases_per_thread
+<< : task declaration statement
+  data dat ; : declaration statement
+  dat->threadnumber = tid ; : assignment statement
+  dat->total_cases_each_thread = total_cases_per_thread[t] ; : assignment statement
+  invoke func_pi : dat : ; : call statement
+>>
+
+start
+<<
+
+  number N = 0; : declaration statement 
+  number Th = 0; : declaration statement 
+  ip->"inp.txt":N,Th; : scan statement
+  array number total_cases_each_thread[10000]; : declaration statement
+  for[number i = 0 | (i < Th) | i += 1] : loop statement
+  <<
+    total_cases_each_thread[i] = (N/Th) ; : assignment statement
+  >>
+
+  
+
+  when[(N%Th != 0)] : conditional statement
+  <<
+    number residual = (N % Th) ; : declaration statement
+    for[number i=0| (i < residual) | i += 1] : loop statement
+    <<
+      total_cases_each_thread[i] += 1; : expression statement
+    >>
+  >>
+  
+  make parallel para : Th : 10 : total_cases_per_thread :; : call statement
+  decimal tim = get->time ; : declaration statement
+
+  
+  op : "Value Computed: " # pi -> "output.txt" ; : print statement
+  op : "Time: " # tim -> "output.txt" ; : print statement
+  op : "Log : " -> "output.txt" ; : print statement
+
+  for[number i = 0 | (i < Th) | i += 1] : loop statement
+  <<
+    mem_share = mem_array[i] ; : assignment statement
+    number J = (i +1); : declaration statement 
+    op: "Thread" # J # " : " -> "output.txt"; : print statement
+    op: "Points inside the square: "; : print statement
+    when[(i == Th - 1)] : conditional statement
+    <<
+      break;
+    >>
+    op: "After conditional" -> "output.txt"; : print statement
+  >>
+
+  <<
+    
+    number a = tid ; : declaration statement
+  >>
+>>

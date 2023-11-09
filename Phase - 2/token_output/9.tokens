@@ -1,0 +1,288 @@
+reserved keyword: type
+Userdefined Datatype: data
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: total
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: thread
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: func
+Identifier: check
+PUNCTUATION: :
+inbuilt datatype: decimal
+Identifier: x
+PUNCTUATION: ,
+inbuilt datatype: decimal
+Identifier: y
+PUNCTUATION: :
+inbuilt datatype: bool
+Special Symbol: <<
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+Identifier: x
+operator: ^
+Constant: 2
+operator: +
+Identifier: y
+operator: ^
+Constant: 2
+operator: <
+Constant: 0
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: return
+Constant: true
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: default
+Special Symbol: <<
+reserved keyword: return
+Constant: false
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: func
+Identifier: findPi
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: total
+PUNCTUATION: ,
+inbuilt datatype: number
+Identifier: thread
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+inbuilt datatype: array decimal
+Identifier: mem
+Special Symbol: [
+Constant: 100
+Special Symbol: ]
+PUNCTUATION: ;
+Identifier: mem
+Special Symbol: [
+Constant: 0
+Special Symbol: ]
+operator: =
+Identifier: p
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: num_of_points
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: x
+PUNCTUATION: ,
+Identifier: y
+PUNCTUATION: ;
+Identifier: x
+operator: =
+Constant: 0
+PUNCTUATION: ;
+Identifier: y
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: i
+PUNCTUATION: ;
+Identifier: i
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: p
+operator: ->
+Identifier: data6
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+Identifier: x
+operator: =
+Special Symbol: (
+Special Symbol: (
+reserved keyword: invoke
+Identifier: rand
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+Special Symbol: )
+operator: /
+Constant: 1000
+Special Symbol: )
+PUNCTUATION: ;
+Identifier: y
+operator: =
+Special Symbol: (
+Special Symbol: (
+reserved keyword: invoke
+Identifier: rand
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+Special Symbol: )
+operator: /
+Constant: 1000
+Special Symbol: )
+PUNCTUATION: ;
+Identifier: mem
+Special Symbol: [
+Identifier: i
+Special Symbol: ]
+operator: =
+Identifier: x
+PUNCTUATION: ;
+Identifier: mem
+Special Symbol: [
+Identifier: i
+operator: +
+Constant: 1
+Special Symbol: ]
+operator: =
+Identifier: y
+PUNCTUATION: ;
+reserved keyword: when
+Special Symbol: [
+reserved keyword: invoke
+Identifier: check
+PUNCTUATION: :
+Identifier: x
+PUNCTUATION: ,
+Identifier: y
+PUNCTUATION: :
+Special Symbol: ]
+Special Symbol: <<
+Identifier: num_of_points
+operator: +=
+Constant: 1
+PUNCTUATION: ;
+Identifier: mem
+Special Symbol: [
+Identifier: i
+operator: +
+Constant: 1
+Special Symbol: ]
+operator: =
+Identifier: x
+PUNCTUATION: ;
+Identifier: mem
+Special Symbol: [
+Identifier: i
+operator: +
+Constant: 5
+Special Symbol: ]
+operator: =
+Identifier: y
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: default
+Special Symbol: <<
+Identifier: mem
+Special Symbol: [
+Identifier: i
+operator: -
+Constant: 1
+Special Symbol: ]
+operator: =
+Constant: -2.0
+PUNCTUATION: ;
+Identifier: mem
+Special Symbol: [
+Identifier: i
+operator: +
+Constant: 2
+Special Symbol: ]
+operator: =
+Constant: -2.0
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: task
+Identifier: parallelpi
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: N
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: thread
+operator: =
+reserved keyword: tid
+PUNCTUATION: ;
+reserved keyword: invoke
+Identifier: findPi
+PUNCTUATION: :
+Identifier: N
+PUNCTUATION: ,
+Identifier: thread
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: start
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: N
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: Th
+PUNCTUATION: ;
+reserved keyword: ip
+operator: ->
+Constant: "inp.txt"
+PUNCTUATION: :
+Identifier: N
+PUNCTUATION: ,
+Identifier: Th
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: i
+PUNCTUATION: ;
+Identifier: i
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+Identifier: i
+operator: =
+Constant: 2
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <=
+Constant: 64
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: ^=
+Constant: 2
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: make parallel
+Identifier: parallelpi
+PUNCTUATION: :
+Identifier: i
+PUNCTUATION: :
+Constant: 10
+PUNCTUATION: :
+Identifier: N
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>

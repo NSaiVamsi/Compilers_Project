@@ -1,0 +1,41 @@
+atomic number counter = 0; $$ global int
+
+type myType <<
+
+    func printMsg : text msg : void
+    << 
+        text str = ("Message from myType: " # msg # "\n");
+        op: str;
+    >>
+
+>>
+
+func incrCounter : number N : void
+<<
+    number i = 0;
+
+    invoke obj->printMsg: ("Hello from the main thread") :;
+    
+    repeat [ (i < N) ] 
+    <<
+        counter += 1;
+        i += 1;
+    >>
+>>
+
+
+start<<
+
+    myType obj; 
+
+    number thrs; 
+
+    ip : thrs;
+
+    make parallel incrCounter : thrs * thrs : 4 : thrs :;  
+
+    invoke obj->printMsg: ("Hello from the main thread") :;
+    op: str;
+    op : counter;
+
+>>

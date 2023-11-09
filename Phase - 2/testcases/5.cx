@@ -1,0 +1,118 @@
+$*
+This type is used to send required data to the threaded function 
+*$
+
+
+type data
+<<
+  number total_cases_each_thread ; $$ This variable stores the value of number of test cases checked by the respective thread
+  number threadnumber ; $$ The thread number of the thread is stored in this variable
+>>
+
+$$ Given in book that we consider the radius of circle as 1
+func check_in_circle : decimal x, decimal y : bool 
+<<
+  when [(x^2 + y^2 - 1 < 0)] 
+  <<
+    return true;
+  >>
+  default << 
+    return false;
+  >>
+>>
+
+$$ This is the threaded function which is called when new threads are created
+
+func func_pi : data dat : void 
+<<
+
+  $$ Typecasting is done so that we can access the data passed to the function
+  $$  In otherwords arguments to the function is passed using pointer to the struct created
+
+
+
+  array decimal mem[1000];
+  mem[0] = (dat->total_cases_each_thread) ;
+  number number_of_points_in_circle = 0;
+  decimal x = 0, y = 0;
+  for[number i = 0| (i < (dat->total_cases_each_thread)) | i+= 1 ]
+  <<
+  x = (invoke rand : null : + 2001 );
+    x = ((invoke rand:null : % 2001 - 1000) / 1000 )  ;
+    y = ((invoke rand:null : % 2001 - 1000) / 1000 ) ;
+    mem[(4*i+2)] = x;
+    mem[(4*i+3)] = y;
+
+    when[invoke check_in_circle:x,y:]
+    <<
+      number_of_points_in_circle += 1;
+      mem[(4*i+4)] = x;
+      mem[(4*i+5)] = y;
+    >>
+    default
+    <<  
+      mem[(4*i+4)] = -2.0;
+      mem[(4*i+5)] = -2.0;
+    >>
+  >>
+  mem[1] = number_of_points_in_circle ;
+  return void;
+>>
+
+task para: array number total_cases_per_thread
+<<
+  data dat ;
+  dat->threadnumber = tid ;
+  dat->total_cases_each_thread = total_cases_per_thread[t] ;
+  invoke func_pi : dat : ;
+>>
+
+start
+<<
+
+  number N = 0; $$ Total number of testcases for the program need to be checked
+  number Th = 0; $$ Total number of threads used by the program
+  ip->"inp.txt":N,Th;
+  array number total_cases_each_thread[10000];
+  for[number i = 0 | (i < Th) | i += 1]
+  <<
+    total_cases_each_thread[i] = (N/Th) ;
+  >>
+
+  $$ The residual value of N after distribution to the threads is distributed
+
+  when[(N%Th != 0)]
+  <<
+    number residual = (N % Th) ;
+    for[number i=0| (i < residual) | i += 1]
+    <<
+      total_cases_each_thread[i] += 1;
+    >>
+  >>
+  
+  make parallel para : Th : 10 : total_cases_per_thread :;
+  decimal tim = get->time ;
+
+  $$ The following is the block of code where writing to "output.txt" is done
+  op : "Value Computed: " # pi -> "output.txt" ;
+  op : "Time: " # tim -> "output.txt" ;
+  op : "Log : " -> "output.txt" ;
+
+  for[number i = 0 | (i < Th) | i += 1]
+  <<
+    mem_share = mem_array[i] ;
+    number J = (i +1); 
+    op: "Thread" # J # " : " -> "output.txt";
+    op: "Points inside the square: ";
+    when[(i == Th - 1)]
+    <<
+      break;
+    >>
+    op: "After conditional" -> "output.txt";
+  >>
+
+  <<
+    $$ Syntax Error
+    number a = tid ;
+  >>
+>>

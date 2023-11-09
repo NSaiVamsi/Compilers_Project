@@ -1,0 +1,32 @@
+func factorial : number b: number : function declaration statement 
+<<
+    number res = 1, i; : declaration statement
+   
+    for [(i = 1 )| (i<= b )| (i += 1) ] : loop statement
+    <<
+        res *= i; : expression statement
+    >>
+
+    return res; : return statement  
+>>
+
+
+task parallelFact: null : task declaration statement
+<<
+    number thr = tid; : declaration statement
+    invoke factorial:thr: ; : call statement
+>>
+
+
+start << 
+    number n = 10; : declaration statement
+    array number num[n]; : declaration statement
+
+    for [ number i = 0 | (i < n) | i += 1] : loop statement <<
+        num[i] = i ; : assignment statement
+    >>
+
+    make parallel parallelFact: 5 : 2 : null: ; : call statement
+
+
+>>

@@ -1,0 +1,74 @@
+number num_threads, k, lam1, lam2; : declaration statement
+decimal sum = 0, max_wait = 0; : declaration statement
+
+
+
+array number waiting[1000]; : declaration statement 
+atomic number bounded_cas_lock = 0; : declaration statement
+
+type ThreadData_op : type declaration statement
+<<
+  decimal result_count = 0; : declaration statement
+  array text result[1000]; : declaration statement
+  decimal waiting_time_count = 0; : declaration statement
+  array decimal waiting_time[1000]; : declaration statement
+
+>>
+
+type thread_data_ip : type declaration statement
+<<
+  number thread_num ; : declaration statement 
+  decimal t1; : declaration statement
+  decimal t2; : declaration statement
+>>
+
+func entry_sec: number id : void : function declaration statement 
+<<
+
+  number exp_val = 0; : declaration statement
+  number new_val = 1; : declaration statement
+  bool key = false; : declaration statement
+
+  waiting[(id - 1)] = 1; : assignment statement
+
+  repeat [((waiting[id - 1] == 1) && (key == false))] : loop statement
+  <<
+    key = invoke bounded_cas_lock->compare_exchange_strong: exp_val, new_val: ; : assignment statement
+    
+    exp_val = 0; : assignment statement
+    new_val = 1; : assignment statement
+  >>
+
+  waiting[id - 1] = 0; : assignment statement
+  return void; : return statement
+>>
+
+func testCS: number id, number t1, number t2 : void : function declaration statement 
+<<
+  
+  for[number i = 0 | (i < k) | i += 1] : loop statement
+  <<
+    op:i # "th Request by thread: " # id -> "output.txt" ; : print statement 
+    sleep(2); : sleep statement
+    op:i # "th Request by thread: " # id # "is served" -> "output.txt" ; : print statement 
+  >>
+  return void; : return statement
+>>
+
+task do_parallel : number t1, number t2
+<< : task declaration statement
+  invoke testCS: tid, t1, t2 : ; : call statement
+>>
+
+start 
+<<
+  ip->"inp.txt":num_threads,k, lam1, lam2 ; : scan statement
+  number rc ; : declaration statement 
+  
+  
+  for[number i= 0 | (i < 1000) | i += 1] : loop statement
+  <<
+    waiting[i] = 0 ; : assignment statement
+  >>
+  make parallel do_parallel: num_threads:k: lam1, lam2 : ; : call statement
+>>

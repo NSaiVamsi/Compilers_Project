@@ -1,0 +1,69 @@
+type pair
+<<
+  decimal a = 0;
+  decimal b = 0 ;
+>>
+
+type thr_details
+<<
+  number circle_ponumbers = 0, squ_ponumbers = 0;
+  $$ array pair a[100] coordcirc, coordsq; $$ Didnot allow array datatypes yet
+
+  func add : number a, number b, number c : bool 
+  <<
+    when[(a+b==c)]
+    <<
+      return false ;
+    >>
+    return true ;
+  >>
+>>
+
+func thread_func : number tno, number len, array number b : void
+<<
+  number i = 0 ;
+  repeat[(i < len)]
+  <<  
+    pair coord ;
+    coord->a = (2*(invoke rand:null:) - 1) ;
+    coord->b = (2*(invoke rand:null:) - 1) ;
+    i += 1 ;
+  >>
+  $$ number num_of_inside = numberhread->circle_ponumbers; $$ Not allowed in RHS yet
+  $$ number num_in_squre = numberhread->squ_ponumbers; $$ Not allowed in RHS yet
+>>
+
+task t: number len, array number a
+<<
+  number cnt = 0;
+  invoke thread_func : tid , 1000 , a : ; 
+>>
+
+start 
+<<
+  decimal pts, th;
+  ip: pts, th ;
+
+  when[(pts % th != 0)]
+  <<
+
+    for[number i = 0 | (i < th - 1) | i += 3]
+    <<
+      for[number j=0 | (j<pts/th + pts%th) | j ^= 3]
+      <<
+        temp[i,j] = (i*pts/th+(j+1));
+      >>
+    a[(i*j+K), (Z-O^2)] = (a + b);
+  >>
+  decimal a = (b-c) ;
+  op:"Time: " # a # " Done" # "\n" -> "output.txt" ;
+
+  number i = 0 ;
+  repeat [(i < Th)] 
+  <<
+    number th_no = (i + 1);
+    op: "Thread" # th_no # ": " # name # " , " # " Ponumbers inside Square\n" ;
+>>
+
+>>
+>>

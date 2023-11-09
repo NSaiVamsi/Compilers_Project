@@ -1,0 +1,230 @@
+inbuilt datatype: array decimal
+Identifier: times_threads
+Special Symbol: [
+Constant: 60
+PUNCTUATION: ,
+Constant: 10
+Special Symbol: ]
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: max_time
+operator: =
+Constant: -1
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: N
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: K
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: lamb1
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: lamb2
+operator: =
+Constant: 0
+PUNCTUATION: ;
+atomic inbuilt datatype: atomic bool
+Identifier: flag
+PUNCTUATION: ;
+reserved keyword: func
+Identifier: tas_enter
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+reserved keyword: repeat
+Special Symbol: [
+reserved keyword: invoke
+Identifier: flag
+operator: ->
+Identifier: f
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+Special Symbol: ]
+Special Symbol: <<
+Special Symbol: >>
+reserved keyword: return
+inbuilt datatype: void
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: func
+Identifier: tas_exit
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+reserved keyword: invoke
+Identifier: flag
+operator: ->
+Identifier: clear
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+PUNCTUATION: ;
+reserved keyword: return
+inbuilt datatype: void
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: func
+Identifier: tas
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: tno
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: K
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: invoke
+Identifier: tas_enter
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: j
+operator: =
+Special Symbol: (
+Identifier: i
+operator: +
+Constant: 1
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Identifier: j
+Special Symbol: #
+Constant: "th CS Requested by thread number: "
+Special Symbol: #
+Identifier: tno
+operator: ->
+Constant: "tas_output"
+PUNCTUATION: ;
+Identifier: times_threads
+Special Symbol: [
+Identifier: i
+PUNCTUATION: ,
+Identifier: i
+operator: +
+Constant: 3
+Special Symbol: ]
+operator: =
+Special Symbol: (
+Identifier: K
+operator: *
+Identifier: i
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: invoke
+Identifier: tas_exit
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: task
+Identifier: do_parallel
+PUNCTUATION: :
+reserved keyword: null
+Special Symbol: <<
+reserved keyword: invoke
+Identifier: tas
+PUNCTUATION: :
+reserved keyword: tid
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: start
+Special Symbol: <<
+reserved keyword: ip
+operator: ->
+Constant: "inp-params.txt"
+PUNCTUATION: :
+Identifier: N
+PUNCTUATION: ,
+Identifier: K
+PUNCTUATION: ,
+Identifier: lamb1
+PUNCTUATION: ,
+Identifier: lamb2
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Identifier: N
+Special Symbol: #
+Constant: " "
+Special Symbol: #
+Identifier: K
+Special Symbol: #
+Constant: " "
+Special Symbol: #
+Identifier: lamb1
+Special Symbol: #
+Constant: " "
+Special Symbol: #
+Identifier: lamb2
+PUNCTUATION: ;
+reserved keyword: make parallel
+Identifier: tas
+PUNCTUATION: :
+Identifier: N
+PUNCTUATION: :
+Identifier: K
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: sum
+operator: =
+Special Symbol: (
+Special Symbol: (
+Identifier: sum
+Special Symbol: )
+operator: /
+Special Symbol: (
+Identifier: N
+operator: *
+Identifier: K
+Special Symbol: )
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Constant: "The average time for "
+Special Symbol: #
+Identifier: N
+Special Symbol: #
+Constant: " threads in microseconds is : "
+Special Symbol: #
+Identifier: sum
+PUNCTUATION: ;
+Special Symbol: >>

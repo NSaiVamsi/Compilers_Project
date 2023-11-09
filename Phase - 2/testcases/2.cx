@@ -1,0 +1,32 @@
+func factorial : number b: number 
+<<
+    number res = 1, i;
+   
+    for [(i = 1 )| (i<= b )| (i += 1) ]
+    <<
+        res *= i;
+    >>
+
+    return res;  
+>>
+
+
+task parallelFact: null
+<<
+    number thr = tid;
+    invoke factorial:thr: ;
+>>
+
+
+start << 
+    number n = 10;
+    array number num[n];
+
+    for [ number i = 0 | (i < n) | i += 1] <<
+        num[i] = i ;
+    >>
+
+    make parallel parallelFact: 5 : 2 : null: ;
+
+
+>>

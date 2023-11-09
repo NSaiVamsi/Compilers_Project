@@ -1,0 +1,142 @@
+atomic inbuilt datatype: atomic array number
+Identifier: a
+Special Symbol: [
+Constant: 5
+Special Symbol: ]
+PUNCTUATION: ;
+reserved keyword: type
+Userdefined Datatype: AtomicClass
+Special Symbol: <<
+atomic inbuilt datatype: atomic number
+Identifier: ato
+PUNCTUATION: ;
+reserved keyword: func
+Identifier: incrementAtomicVar
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: value
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+reserved keyword: invoke
+Identifier: ato
+operator: ->
+Identifier: fetch_add
+PUNCTUATION: :
+Identifier: value
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: func
+Identifier: getAtom
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+inbuilt datatype: number
+Special Symbol: <<
+reserved keyword: return
+reserved keyword: in
+operator: ->
+Identifier: ato
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: func
+Identifier: isEven
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+inbuilt datatype: bool
+Special Symbol: <<
+reserved keyword: return
+operator: ~
+Special Symbol: (
+reserved keyword: in
+operator: ->
+Identifier: ato
+Special Symbol: )
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: func
+Identifier: global
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: tno
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+Userdefined Datatype: AtomicClass
+Identifier: y
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Constant: 5
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: op
+PUNCTUATION: :
+Identifier: i
+Special Symbol: #
+Constant: " In thread : "
+Special Symbol: #
+Identifier: tno
+PUNCTUATION: ;
+reserved keyword: invoke
+Identifier: y
+operator: ->
+Identifier: incrementAtomicVar
+PUNCTUATION: :
+Special Symbol: (
+Identifier: i
+operator: +
+Constant: 1
+Special Symbol: )
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: task
+Identifier: ttsk
+PUNCTUATION: :
+reserved keyword: null
+Special Symbol: <<
+reserved keyword: invoke
+Identifier: global
+PUNCTUATION: :
+reserved keyword: tid
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: start
+Special Symbol: <<
+reserved keyword: make parallel
+Identifier: ttsk
+PUNCTUATION: :
+Constant: 4
+PUNCTUATION: :
+Constant: 2
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: a
+operator: =
+reserved keyword: get
+operator: ->
+reserved keyword: time
+PUNCTUATION: ;
+Special Symbol: >>

@@ -1,0 +1,1039 @@
+inbuilt datatype: number
+Identifier: K
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: N
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: n
+PUNCTUATION: ;
+inbuilt datatype: array number
+Identifier: sudoko
+Special Symbol: [
+Constant: 100
+PUNCTUATION: ,
+Constant: 100
+Special Symbol: ]
+PUNCTUATION: ;
+reserved keyword: type
+Userdefined Datatype: datak
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: tno
+PUNCTUATION: ;
+inbuilt datatype: text
+Identifier: typee
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: type
+Userdefined Datatype: return_single
+Special Symbol: <<
+inbuilt datatype: text
+Identifier: str
+PUNCTUATION: ;
+inbuilt datatype: bool
+Identifier: valid
+PUNCTUATION: ;
+reserved keyword: func
+Identifier: compare
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: a
+PUNCTUATION: ,
+inbuilt datatype: number
+Identifier: b
+PUNCTUATION: :
+inbuilt datatype: bool
+Special Symbol: <<
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+reserved keyword: in
+operator: ->
+Identifier: str
+operator: ==
+Constant: "Hi"
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+Identifier: valid
+operator: =
+Constant: false
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: return
+operator: ~
+Special Symbol: (
+Identifier: valid
+Special Symbol: )
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: type
+Userdefined Datatype: return_full
+Special Symbol: <<
+inbuilt datatype: array text
+Identifier: a
+Special Symbol: [
+Constant: 300
+Special Symbol: ]
+PUNCTUATION: ;
+inbuilt datatype: bool
+Identifier: valid
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: func
+Identifier: check_if_present
+PUNCTUATION: :
+inbuilt datatype: array number
+Identifier: check_value
+PUNCTUATION: ,
+inbuilt datatype: number
+Identifier: index
+PUNCTUATION: ,
+inbuilt datatype: number
+Identifier: value
+PUNCTUATION: :
+inbuilt datatype: bool
+Special Symbol: <<
+inbuilt datatype: bool
+Identifier: ret
+operator: =
+Constant: false
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: index
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+Identifier: check_value
+Special Symbol: [
+Identifier: i
+Special Symbol: ]
+operator: ==
+Identifier: value
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+Identifier: ret
+operator: =
+Constant: true
+PUNCTUATION: ;
+reserved keyword: break
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: return
+Identifier: ret
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: func
+Identifier: check_given_values
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: I
+PUNCTUATION: ,
+inbuilt datatype: number
+Identifier: J
+PUNCTUATION: ,
+inbuilt datatype: number
+Identifier: tno
+PUNCTUATION: ,
+inbuilt datatype: text
+Identifier: typee
+PUNCTUATION: :
+Userdefined Datatype: return_single
+Special Symbol: <<
+inbuilt datatype: array number
+Identifier: check_values
+Special Symbol: [
+Identifier: N
+Special Symbol: ]
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: check
+operator: =
+Constant: 1
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: index
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: num
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+Identifier: typee
+operator: ==
+Constant: "row"
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+Identifier: num
+operator: =
+Special Symbol: (
+Identifier: I
+operator: +
+Constant: 1
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: j
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: j
+operator: <
+Identifier: N
+Special Symbol: )
+Special Symbol: |
+Identifier: j
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: when
+Special Symbol: [
+reserved keyword: invoke
+Identifier: check_if_present
+PUNCTUATION: :
+Identifier: check_values
+PUNCTUATION: ,
+Identifier: index
+PUNCTUATION: ,
+Identifier: sudoko
+Special Symbol: [
+Identifier: I
+PUNCTUATION: ,
+Identifier: j
+Special Symbol: ]
+PUNCTUATION: :
+Special Symbol: ]
+Special Symbol: <<
+Identifier: check
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: break
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: default
+Special Symbol: <<
+Identifier: check_values
+Special Symbol: [
+Identifier: index
+Special Symbol: ]
+operator: =
+Identifier: sudoko
+Special Symbol: [
+Identifier: I
+PUNCTUATION: ,
+Identifier: j
+Special Symbol: ]
+PUNCTUATION: ;
+Identifier: index
+operator: +=
+Constant: 1
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+Special Symbol: >>
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: a
+operator: =
+Constant: 9
+PUNCTUATION: ;
+Identifier: a
+operator: *=
+Constant: 10
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+Identifier: typee
+operator: ==
+Constant: "column"
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+Identifier: num
+operator: =
+Special Symbol: (
+Identifier: J
+operator: +
+Constant: 1
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: N
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: when
+Special Symbol: [
+reserved keyword: invoke
+Identifier: check_if_present
+PUNCTUATION: :
+Identifier: check_values
+PUNCTUATION: ,
+Identifier: index
+PUNCTUATION: ,
+Identifier: sudoko
+Special Symbol: [
+Identifier: i
+PUNCTUATION: ,
+Identifier: J
+Special Symbol: ]
+PUNCTUATION: :
+Special Symbol: ]
+Special Symbol: <<
+Identifier: check
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: break
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: default
+Special Symbol: <<
+Identifier: check_values
+Special Symbol: [
+Identifier: index
+Special Symbol: ]
+operator: =
+Identifier: sudoko
+Special Symbol: [
+Identifier: i
+PUNCTUATION: ,
+Identifier: J
+Special Symbol: ]
+PUNCTUATION: ;
+Identifier: index
+operator: +=
+Constant: 1
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: else when
+Special Symbol: [
+Special Symbol: (
+Identifier: typee
+operator: ==
+Constant: "grid"
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+Identifier: num
+operator: =
+Special Symbol: (
+Identifier: J
+operator: /
+Identifier: n
+operator: +
+Constant: 1
+operator: +
+Identifier: I
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: n
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: j
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: j
+operator: <
+Identifier: n
+Special Symbol: )
+Special Symbol: |
+Identifier: j
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: when
+Special Symbol: [
+reserved keyword: invoke
+Identifier: check_if_present
+PUNCTUATION: :
+Identifier: check_values
+PUNCTUATION: ,
+Identifier: index
+PUNCTUATION: ,
+Identifier: sudoko
+Special Symbol: [
+Identifier: I
+operator: +
+Identifier: i
+PUNCTUATION: ,
+Identifier: J
+operator: +
+Identifier: j
+Special Symbol: ]
+PUNCTUATION: :
+Special Symbol: ]
+Special Symbol: <<
+Identifier: check
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: break
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: default
+Special Symbol: <<
+Identifier: check_values
+Special Symbol: [
+Identifier: index
+Special Symbol: ]
+operator: =
+Identifier: sudoko
+Special Symbol: [
+Identifier: I
+operator: +
+Identifier: i
+PUNCTUATION: ,
+Identifier: J
+operator: +
+Identifier: j
+Special Symbol: ]
+PUNCTUATION: ;
+Identifier: index
+operator: +=
+Constant: 1
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+Special Symbol: >>
+Special Symbol: >>
+Userdefined Datatype: return_single
+Identifier: r
+PUNCTUATION: ;
+inbuilt datatype: text
+Identifier: str
+operator: =
+Constant: ""
+PUNCTUATION: ;
+Identifier: str
+operator: =
+Special Symbol: (
+Constant: "Thread"
+Special Symbol: #
+Identifier: tno
+Special Symbol: #
+Constant: " checks "
+Special Symbol: #
+Identifier: typee
+Special Symbol: #
+Constant: " "
+Special Symbol: #
+Identifier: numberrr
+Special Symbol: #
+Constant: " and is "
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+Identifier: check
+operator: ==
+Constant: 0
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+Identifier: str
+operator: =
+Special Symbol: (
+Identifier: str
+Special Symbol: #
+Constant: "invalid"
+Special Symbol: )
+PUNCTUATION: ;
+Identifier: r
+operator: ->
+Identifier: valid
+operator: =
+Constant: false
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: default
+Special Symbol: <<
+Identifier: str
+operator: =
+Special Symbol: (
+Identifier: str
+Special Symbol: #
+Constant: "valid"
+Special Symbol: )
+PUNCTUATION: ;
+Identifier: r
+operator: ->
+Identifier: valid
+operator: =
+Constant: true
+PUNCTUATION: ;
+Special Symbol: >>
+Identifier: r
+operator: ->
+Identifier: str
+operator: =
+Identifier: str
+PUNCTUATION: ;
+reserved keyword: return
+Identifier: r
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: func
+Identifier: function
+PUNCTUATION: :
+Userdefined Datatype: datak
+Identifier: dat
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+Identifier: ret
+operator: ->
+Identifier: valid
+operator: =
+Constant: true
+PUNCTUATION: ;
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: typee
+operator: ==
+Constant: "row"
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: I
+operator: =
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: tno
+operator: -
+Constant: 1
+Special Symbol: )
+Special Symbol: |
+Special Symbol: (
+Identifier: I
+operator: <
+Identifier: N
+Special Symbol: )
+Special Symbol: |
+Identifier: I
+operator: +=
+Identifier: K
+Special Symbol: ]
+Special Symbol: <<
+Userdefined Datatype: return_single
+Identifier: r
+operator: =
+reserved keyword: invoke
+Identifier: check_given_values
+PUNCTUATION: :
+Constant: 0
+PUNCTUATION: ,
+Identifier: J
+PUNCTUATION: ,
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: tno
+Special Symbol: )
+PUNCTUATION: ,
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: typee
+Special Symbol: )
+PUNCTUATION: :
+PUNCTUATION: ;
+Identifier: ret
+operator: ->
+Identifier: valid
+operator: =
+Special Symbol: (
+Identifier: ret
+operator: ->
+Identifier: valid
+operator: &&
+Identifier: r
+operator: ->
+Identifier: valid
+Special Symbol: )
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: else when
+Special Symbol: [
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: typee
+operator: ==
+Constant: "column"
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: J
+operator: =
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: tno
+operator: -
+Constant: 1
+Special Symbol: )
+Special Symbol: |
+Special Symbol: (
+Identifier: J
+operator: <
+Identifier: N
+Special Symbol: )
+Special Symbol: |
+Identifier: J
+operator: +=
+Identifier: K
+Special Symbol: ]
+Special Symbol: <<
+Userdefined Datatype: return_single
+Identifier: r
+operator: =
+reserved keyword: invoke
+Identifier: check_given_values
+PUNCTUATION: :
+Constant: 0
+PUNCTUATION: ,
+Identifier: J
+PUNCTUATION: ,
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: tno
+Special Symbol: )
+PUNCTUATION: ,
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: typee
+Special Symbol: )
+PUNCTUATION: :
+PUNCTUATION: ;
+Identifier: ret
+operator: ->
+Identifier: valid
+operator: =
+Special Symbol: (
+Identifier: ret
+operator: ->
+Identifier: valid
+operator: &&
+Identifier: r
+operator: ->
+Identifier: valid
+Special Symbol: )
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: else when
+Special Symbol: [
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: typee
+operator: ==
+Constant: "grid"
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+inbuilt datatype: array number
+Identifier: I
+Special Symbol: [
+Identifier: N
+Special Symbol: ]
+PUNCTUATION: ;
+inbuilt datatype: array number
+Identifier: J
+Special Symbol: [
+Identifier: N
+Special Symbol: ]
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: n
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: j
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: j
+operator: <
+Identifier: n
+Special Symbol: )
+Special Symbol: |
+Identifier: j
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+Identifier: I
+Special Symbol: [
+Special Symbol: (
+Identifier: N
+operator: *
+Identifier: j
+operator: +
+Identifier: i
+Special Symbol: )
+Special Symbol: ]
+operator: =
+Special Symbol: (
+Identifier: n
+operator: *
+Identifier: j
+Special Symbol: )
+PUNCTUATION: ;
+Identifier: J
+Special Symbol: [
+Special Symbol: (
+Identifier: N
+operator: *
+Identifier: j
+operator: +
+Identifier: i
+Special Symbol: )
+Special Symbol: ]
+operator: =
+Special Symbol: (
+Identifier: n
+operator: *
+Identifier: i
+Special Symbol: )
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: grid_no
+operator: =
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: tno
+Special Symbol: )
+Special Symbol: |
+Special Symbol: (
+Identifier: grid_no
+operator: <=
+Identifier: N
+Special Symbol: )
+Special Symbol: |
+Identifier: grid_no
+operator: +=
+Identifier: K
+Special Symbol: ]
+Special Symbol: <<
+Userdefined Datatype: return_single
+Identifier: r
+operator: =
+reserved keyword: invoke
+Identifier: check_given_values
+PUNCTUATION: :
+Constant: 0
+PUNCTUATION: ,
+Identifier: J
+PUNCTUATION: ,
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: tno
+Special Symbol: )
+PUNCTUATION: ,
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: typee
+Special Symbol: )
+PUNCTUATION: :
+PUNCTUATION: ;
+Identifier: ret
+operator: ->
+Identifier: valid
+operator: =
+Special Symbol: (
+Identifier: ret
+operator: ->
+Identifier: valid
+operator: &&
+Identifier: r
+operator: ->
+Identifier: valid
+Special Symbol: )
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: return
+inbuilt datatype: void
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: task
+Identifier: finder
+PUNCTUATION: :
+reserved keyword: null
+Special Symbol: <<
+Userdefined Datatype: datak
+Identifier: dat
+PUNCTUATION: ;
+Identifier: dat
+operator: ->
+Identifier: tno
+operator: =
+reserved keyword: tid
+PUNCTUATION: ;
+Identifier: dat
+operator: ->
+Identifier: typee
+operator: =
+Constant: "row"
+PUNCTUATION: ;
+reserved keyword: invoke
+Identifier: function
+PUNCTUATION: :
+Identifier: dat
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: start
+Special Symbol: <<
+reserved keyword: ip
+operator: ->
+Constant: "input.txt"
+PUNCTUATION: :
+Identifier: K
+PUNCTUATION: ,
+Identifier: N
+PUNCTUATION: ;
+Identifier: n
+operator: =
+Special Symbol: (
+Identifier: N
+operator: ^
+Special Symbol: (
+Constant: 1.0
+operator: /
+Constant: 2
+Special Symbol: )
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: N
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+inbuilt datatype: array number
+Identifier: temp
+Special Symbol: [
+Constant: 1000
+Special Symbol: ]
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: j
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: j
+operator: <
+Identifier: N
+Special Symbol: )
+Special Symbol: |
+Identifier: j
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: val
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: ip
+operator: ->
+Constant: "input.txt"
+PUNCTUATION: :
+Identifier: val
+PUNCTUATION: ;
+Identifier: temp
+Special Symbol: [
+Identifier: j
+Special Symbol: ]
+operator: =
+Identifier: val
+PUNCTUATION: ;
+Special Symbol: >>
+Identifier: sudoko
+Special Symbol: [
+Identifier: i
+Special Symbol: ]
+operator: =
+Identifier: temp
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: make parallel
+Identifier: finder
+PUNCTUATION: :
+Identifier: K
+PUNCTUATION: :
+Constant: 10
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: timee
+operator: =
+reserved keyword: get
+operator: ->
+reserved keyword: time
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Constant: "Total time taken is: "
+Special Symbol: #
+Identifier: timee
+PUNCTUATION: ;
+inbuilt datatype: text
+Identifier: s
+operator: =
+Constant: "output_pthread.txt"
+PUNCTUATION: ;
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+Identifier: sudoko_check
+operator: ==
+Constant: false
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: op
+PUNCTUATION: :
+Constant: "sudoko is invalid"
+operator: ->
+Identifier: s
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: default
+Special Symbol: <<
+reserved keyword: op
+PUNCTUATION: :
+Constant: "sudoko is valid"
+operator: ->
+Identifier: s
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>

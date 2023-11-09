@@ -1,0 +1,42 @@
+atomic array number a[5]; : declaration statement
+
+type AtomicClass : type declaration statement
+<<
+  atomic number ato; : declaration statement
+
+  func incrementAtomicVar: number value : void : function declaration statement
+  <<
+    invoke ato->fetch_add:value: ; : call statement
+  >>
+
+  func getAtom : null : number : function declaration statement
+  <<
+    return in->ato ; : return statement
+  >>
+
+  func isEven : null : bool : function declaration statement
+  <<
+    return ~(in->ato) ; : return statement
+  >>
+>>
+
+func global: number tno : void : function declaration statement
+<<
+  AtomicClass y; : declaration statement
+  for[number i=0| (i<5) | i += 1] : loop statement
+  <<
+    op: i # " In thread : " # tno; : print statement
+    invoke y->incrementAtomicVar: (i+1) : ; : call statement
+  >>
+>>
+
+task ttsk: null : task declaration statement
+<<
+  invoke global:tid:; : call statement
+>>
+
+start
+<<
+  make parallel ttsk: 4: 2: null: ; : call statement
+  decimal a = get->time; : declaration statement
+>>

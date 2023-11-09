@@ -1,0 +1,517 @@
+reserved keyword: type
+Userdefined Datatype: data
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: total_cases_each_thread
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: threadnumber
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: func
+Identifier: check_in_circle
+PUNCTUATION: :
+inbuilt datatype: decimal
+Identifier: x
+PUNCTUATION: ,
+inbuilt datatype: decimal
+Identifier: y
+PUNCTUATION: :
+inbuilt datatype: bool
+Special Symbol: <<
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+Identifier: x
+operator: ^
+Constant: 2
+operator: +
+Identifier: y
+operator: ^
+Constant: 2
+operator: -
+Constant: 1
+operator: <
+Constant: 0
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: return
+Constant: true
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: default
+Special Symbol: <<
+reserved keyword: return
+Constant: false
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: func
+Identifier: func_pi
+PUNCTUATION: :
+Userdefined Datatype: data
+Identifier: dat
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+inbuilt datatype: array decimal
+Identifier: mem
+Special Symbol: [
+Constant: 1000
+Special Symbol: ]
+PUNCTUATION: ;
+Identifier: mem
+Special Symbol: [
+Constant: 0
+Special Symbol: ]
+operator: =
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: total_cases_each_thread
+Special Symbol: )
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: number_of_points_in_circle
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: x
+operator: =
+Constant: 0
+PUNCTUATION: ,
+Identifier: y
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Special Symbol: (
+Identifier: dat
+operator: ->
+Identifier: total_cases_each_thread
+Special Symbol: )
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+Identifier: x
+operator: =
+Special Symbol: (
+reserved keyword: invoke
+Identifier: rand
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+operator: +
+Constant: 2001
+Special Symbol: )
+PUNCTUATION: ;
+Identifier: x
+operator: =
+Special Symbol: (
+Special Symbol: (
+reserved keyword: invoke
+Identifier: rand
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+operator: %
+Constant: 2001
+operator: -
+Constant: 1000
+Special Symbol: )
+operator: /
+Constant: 1000
+Special Symbol: )
+PUNCTUATION: ;
+Identifier: y
+operator: =
+Special Symbol: (
+Special Symbol: (
+reserved keyword: invoke
+Identifier: rand
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+operator: %
+Constant: 2001
+operator: -
+Constant: 1000
+Special Symbol: )
+operator: /
+Constant: 1000
+Special Symbol: )
+PUNCTUATION: ;
+Identifier: mem
+Special Symbol: [
+Special Symbol: (
+Constant: 4
+operator: *
+Identifier: i
+operator: +
+Constant: 2
+Special Symbol: )
+Special Symbol: ]
+operator: =
+Identifier: x
+PUNCTUATION: ;
+Identifier: mem
+Special Symbol: [
+Special Symbol: (
+Constant: 4
+operator: *
+Identifier: i
+operator: +
+Constant: 3
+Special Symbol: )
+Special Symbol: ]
+operator: =
+Identifier: y
+PUNCTUATION: ;
+reserved keyword: when
+Special Symbol: [
+reserved keyword: invoke
+Identifier: check_in_circle
+PUNCTUATION: :
+Identifier: x
+PUNCTUATION: ,
+Identifier: y
+PUNCTUATION: :
+Special Symbol: ]
+Special Symbol: <<
+Identifier: number_of_points_in_circle
+operator: +=
+Constant: 1
+PUNCTUATION: ;
+Identifier: mem
+Special Symbol: [
+Special Symbol: (
+Constant: 4
+operator: *
+Identifier: i
+operator: +
+Constant: 4
+Special Symbol: )
+Special Symbol: ]
+operator: =
+Identifier: x
+PUNCTUATION: ;
+Identifier: mem
+Special Symbol: [
+Special Symbol: (
+Constant: 4
+operator: *
+Identifier: i
+operator: +
+Constant: 5
+Special Symbol: )
+Special Symbol: ]
+operator: =
+Identifier: y
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: default
+Special Symbol: <<
+Identifier: mem
+Special Symbol: [
+Special Symbol: (
+Constant: 4
+operator: *
+Identifier: i
+operator: +
+Constant: 4
+Special Symbol: )
+Special Symbol: ]
+operator: =
+Constant: -2.0
+PUNCTUATION: ;
+Identifier: mem
+Special Symbol: [
+Special Symbol: (
+Constant: 4
+operator: *
+Identifier: i
+operator: +
+Constant: 5
+Special Symbol: )
+Special Symbol: ]
+operator: =
+Constant: -2.0
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+Identifier: mem
+Special Symbol: [
+Constant: 1
+Special Symbol: ]
+operator: =
+Identifier: number_of_points_in_circle
+PUNCTUATION: ;
+reserved keyword: return
+inbuilt datatype: void
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: task
+Identifier: para
+PUNCTUATION: :
+inbuilt datatype: array number
+Identifier: total_cases_per_thread
+Special Symbol: <<
+Userdefined Datatype: data
+Identifier: dat
+PUNCTUATION: ;
+Identifier: dat
+operator: ->
+Identifier: threadnumber
+operator: =
+reserved keyword: tid
+PUNCTUATION: ;
+Identifier: dat
+operator: ->
+Identifier: total_cases_each_thread
+operator: =
+Identifier: total_cases_per_thread
+Special Symbol: [
+Identifier: t
+Special Symbol: ]
+PUNCTUATION: ;
+reserved keyword: invoke
+Identifier: func_pi
+PUNCTUATION: :
+Identifier: dat
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: start
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: N
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: Th
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: ip
+operator: ->
+Constant: "inp.txt"
+PUNCTUATION: :
+Identifier: N
+PUNCTUATION: ,
+Identifier: Th
+PUNCTUATION: ;
+inbuilt datatype: array number
+Identifier: total_cases_each_thread
+Special Symbol: [
+Constant: 10000
+Special Symbol: ]
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: Th
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+Identifier: total_cases_each_thread
+Special Symbol: [
+Identifier: i
+Special Symbol: ]
+operator: =
+Special Symbol: (
+Identifier: N
+operator: /
+Identifier: Th
+Special Symbol: )
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+Identifier: N
+operator: %
+Identifier: Th
+operator: !=
+Constant: 0
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: residual
+operator: =
+Special Symbol: (
+Identifier: N
+operator: %
+Identifier: Th
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: residual
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+Identifier: total_cases_each_thread
+Special Symbol: [
+Identifier: i
+Special Symbol: ]
+operator: +=
+Constant: 1
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: make parallel
+Identifier: para
+PUNCTUATION: :
+Identifier: Th
+PUNCTUATION: :
+Constant: 10
+PUNCTUATION: :
+Identifier: total_cases_per_thread
+PUNCTUATION: :
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: tim
+operator: =
+reserved keyword: get
+operator: ->
+reserved keyword: time
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Constant: "Value Computed: "
+Special Symbol: #
+Identifier: pi
+operator: ->
+Constant: "output.txt"
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Constant: "Time: "
+Special Symbol: #
+Identifier: tim
+operator: ->
+Constant: "output.txt"
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Constant: "Log : "
+operator: ->
+Constant: "output.txt"
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: Th
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+Identifier: mem_share
+operator: =
+Identifier: mem_array
+Special Symbol: [
+Identifier: i
+Special Symbol: ]
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: J
+operator: =
+Special Symbol: (
+Identifier: i
+operator: +
+Constant: 1
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Constant: "Thread"
+Special Symbol: #
+Identifier: J
+Special Symbol: #
+Constant: " : "
+operator: ->
+Constant: "output.txt"
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Constant: "Points inside the square: "
+PUNCTUATION: ;
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+Identifier: i
+operator: ==
+Identifier: Th
+operator: -
+Constant: 1
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: break
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: op
+PUNCTUATION: :
+Constant: "After conditional"
+operator: ->
+Constant: "output.txt"
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: a
+operator: =
+reserved keyword: tid
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>

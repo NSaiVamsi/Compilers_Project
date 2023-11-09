@@ -1,0 +1,69 @@
+type data : type declaration statement
+<<
+  number total; : declaration statement
+  number thread; : declaration statement 
+>>
+
+func check : decimal x, decimal y : bool : function declaration statement
+<<
+  when [(x^2+y^2 < 0)] : conditional statement
+  <<
+    return true; : return statement
+  >>
+  default : conditional statement
+  <<
+    return false; : return statement
+  >>
+>>
+
+func findPi : number total, number thread : void : function declaration statement
+<<
+  array decimal mem[100]; : declaration statement
+  mem[0] = p; : assignment statement
+  number num_of_points = 0; : declaration statement
+  decimal x,y; : declaration statement
+  x = 0; : assignment statement
+  y = 0; : assignment statement
+  number i; : declaration statement
+  i = 0; : assignment statement
+  for[i=0|(i<p->data6)|i+=1] : loop statement 
+  <<
+    x = ((invoke rand : null : )/1000); : assignment statement
+    y = ((invoke rand : null : )/1000); : assignment statement
+
+    mem[i] = x; : assignment statement
+    mem[i+1] = y; : assignment statement
+
+    when[invoke check:x,y:] : conditional statement
+    <<
+      num_of_points += 1; : expression statement
+      mem[i+1] = x; : assignment statement
+      mem[i+5] = y; : assignment statement
+    >>
+    default : conditional statement
+    <<
+      mem[i- 1] = -2.0; : assignment statement
+      mem[i+2] = -2.0; : assignment statement
+    >>
+  >>
+>>
+
+
+task parallelpi: number N 
+<< : task declaration statement
+  number thread = tid; : declaration statement
+  invoke findPi:N,thread:; : call statement
+>>
+
+start
+<<
+  number N; : declaration statement
+  number Th; : declaration statement
+  ip->"inp.txt":N,Th ; : scan statement
+  number i; : declaration statement
+  i = 0; : assignment statement
+  for[i = 2|(i<=64)|i ^= 2] : loop statement
+  <<
+    make parallel parallelpi:i:10: N :; : call statement
+  >>
+>>

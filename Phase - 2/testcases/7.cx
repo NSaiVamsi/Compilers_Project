@@ -1,0 +1,58 @@
+$$ Asssuming that the number of threads considered are less than 60
+
+array decimal times_threads[60, 10]; $$ This array is used to store the times generated in each thread
+decimal max_time = -1;         $$ Max value of time in the particular thread value
+number N = 0;                    $$ Variable for total number of threads
+number K = 0;                    $$ Variable for storing number of times a thread requests for entry to critical section
+number lamb1 = 0;                $$ Mean value for exponential distribution of t1
+number lamb2 = 0;                $$ Mean value for exponential distribution of 
+atomic bool flag ;
+
+func tas_enter: null : void
+<<
+  repeat[invoke flag->f:null:]
+  <<
+  
+  >>
+  return void;
+>>
+
+func tas_exit: null : void
+<<
+  invoke flag->clear:null: ;
+  return void;
+>>
+
+func tas: number tno :void
+<<
+  for[number i = 0 | (i < K) | i += 1]
+  <<
+    invoke tas_enter: null : ;
+    number j = (i + 1) ;
+    op: j # "th CS Requested by thread number: " # tno -> "tas_output" ; 
+    times_threads [i,i+3] = (K * i) ;
+    invoke tas_exit: null : ;
+  >>
+>>
+
+task do_parallel: null
+<<
+  invoke tas: tid : ;
+>>
+
+start 
+<<
+  ip->"inp-params.txt" : N , K, lamb1, lamb2 ;
+  op: N # " " # K # " " # lamb1 # " " # lamb2 ;
+
+  make parallel tas: N : K : null : ;
+  decimal sum = ((sum)/(N*K));
+  op:  "The average time for " # N # " threads in microseconds is : " # sum ;
+>>
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+number num_threads, k, lam1, lam2;
+decimal sum = 0, max_wait = 0;
+
+$$ number waiting[1000]; $$ should give an error ; comment out this line to go through rest part of the code
+
+array number waiting[1000]; $$ no error
+atomic number bounded_cas_lock = 0;
+
+type ThreadData_op
+<<
+  decimal result_count = 0;
+  array text result[1000];
+  decimal waiting_time_count = 0;
+  array decimal waiting_time[1000];
+$$ << $$ should give out an error; comment out this line to go through rest part of the code
+>>
+
+type thread_data_ip
+<<
+  number thread_num ; $$ thread number
+  decimal t1;
+  decimal t2;
+>>
+
+func entry_sec: number id : void 
+<<
+
+  number exp_val = 0;
+  number new_val = 1;
+  bool key = false;
+
+  waiting[(id - 1)] = 1;
+
+  repeat [((waiting[id - 1] == 1) && (key == false))]
+  <<
+    key = invoke bounded_cas_lock->compare_exchange_strong: exp_val, new_val: ;
+    $$ Doing Nothing
+    exp_val = 0;
+    new_val = 1;
+  >>
+
+  waiting[id - 1] = 0;
+  return void;
+>>
+
+func testCS: number id, number t1, number t2 : void 
+<<
+  
+  for[number i = 0 | (i < k) | i += 1]
+  <<
+    op:i # "th Request by thread: " # id -> "output.txt" ; 
+    sleep(2);
+    op:i # "th Request by thread: " # id # "is served" -> "output.txt" ; 
+  >>
+  return void;
+>>
+
+task do_parallel : number t1, number t2
+<<
+  invoke testCS: tid, t1, t2 : ;
+>>
+
+start 
+<<
+  ip->"inp.txt":num_threads,k, lam1, lam2 ;
+  number rc ; $$ To catch error at thread
+  
+  $$ Creating K number of Threads as per Input.
+  for[number i= 0 | (i < 1000) | i += 1]
+  <<
+    waiting[i] = 0 ;
+  >>
+  make parallel do_parallel: num_threads:k: lam1, lam2 : ;
+>>

@@ -1,0 +1,47 @@
+type pt : type declaration statement
+<<
+    decimal x, y; : declaration statement
+>>
+
+func dist : pt a, pt b: decimal : function declaration statement 
+<<
+    decimal d = ((a->x - b->x)^2) ; : declaration statement
+   
+
+    return (d^1/2); : return statement 
+>>
+
+task temp : pt tempry 
+<< : task declaration statement
+    number thr = tid, i = 0; : declaration statement 
+    
+    repeat[(i < array_size - 1)] : loop statement <<
+    
+        decimal s = invoke dist: tempry[1], tempry[2] : ; : declaration statement
+
+        op: s -> "log.txt"; : print statement
+        op: "\n" -> "log.txt"; : print statement
+        i += 1; : expression statement
+    >>
+>>
+
+
+start<<
+
+    text a = "Heyy!"; : declaration statement
+    
+
+    decimal one = "yes"; : declaration statement 
+    decimal numbeur = 1; : declaration statement 
+
+    op: a -> "output.txt" ; : print statement 
+
+    op: a; : print statement 
+
+    pt testt; : declaration statement
+    
+    testt-> x = 1; : assignment statement testt->y = 2; : assignment statement
+
+    make parallel tasktemp : 7 : 3 : testt:; : call statement
+
+>>

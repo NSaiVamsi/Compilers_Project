@@ -1,0 +1,47 @@
+type pt
+<<
+    decimal x, y;
+>>
+
+func dist : pt a, pt b: decimal 
+<<
+    decimal d = ((a->x - b->x)^2) ;
+   
+
+    return (d^1/2); $$ check if both works or not. 
+>>
+
+task temp : pt tempry 
+<<
+    number thr = tid, i = 0; $$array_size = tempry.size();
+    
+    repeat[(i < array_size - 1)] <<
+    
+        decimal s = invoke dist: tempry[1], tempry[2] : ;
+
+        op: s -> "log.txt";
+        op: "\n" -> "log.txt";
+        i += 1;
+    >>
+>>
+
+
+start<<
+
+    text a = "Heyy!";
+    $$ text a = "Re-declared, should come out as error!";
+
+    decimal one = "yes"; $$ not an error (will check in semantics)
+    decimal numbeur = 1; $$  error (using kw as id)
+
+    op: a -> "output.txt" ; $$ should create that new file and write 'a' string to it.
+
+    op: a; $$ should print the string 'a' to the terminal
+
+    pt testt;
+    
+    testt-> x = 1; testt->y = 2;
+
+    make parallel tasktemp : 7 : 3 : testt:;
+
+>>

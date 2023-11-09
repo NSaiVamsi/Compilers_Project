@@ -1,0 +1,118 @@
+atomic inbuilt datatype: atomic number
+Identifier: counter
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: type
+Userdefined Datatype: myType
+Special Symbol: <<
+reserved keyword: func
+Identifier: printMsg
+PUNCTUATION: :
+inbuilt datatype: text
+Identifier: msg
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+inbuilt datatype: text
+Identifier: str
+operator: =
+Special Symbol: (
+Constant: "Message from myType: "
+Special Symbol: #
+Identifier: msg
+Special Symbol: #
+Constant: "\n"
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Identifier: str
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: func
+Identifier: incrCounter
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: N
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: invoke
+Identifier: obj
+operator: ->
+Identifier: printMsg
+PUNCTUATION: :
+Special Symbol: (
+Constant: "Hello from the main thread"
+Special Symbol: )
+PUNCTUATION: :
+PUNCTUATION: ;
+reserved keyword: repeat
+Special Symbol: [
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: N
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+Identifier: counter
+operator: +=
+Constant: 1
+PUNCTUATION: ;
+Identifier: i
+operator: +=
+Constant: 1
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: start
+Special Symbol: <<
+Userdefined Datatype: myType
+Identifier: obj
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: thrs
+PUNCTUATION: ;
+reserved keyword: ip
+PUNCTUATION: :
+Identifier: thrs
+PUNCTUATION: ;
+reserved keyword: make parallel
+Identifier: incrCounter
+PUNCTUATION: :
+Identifier: thrs
+operator: *
+Identifier: thrs
+PUNCTUATION: :
+Constant: 4
+PUNCTUATION: :
+Identifier: thrs
+PUNCTUATION: :
+PUNCTUATION: ;
+reserved keyword: invoke
+Identifier: obj
+operator: ->
+Identifier: printMsg
+PUNCTUATION: :
+Special Symbol: (
+Constant: "Hello from the main thread"
+Special Symbol: )
+PUNCTUATION: :
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Identifier: str
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Identifier: counter
+PUNCTUATION: ;
+Special Symbol: >>

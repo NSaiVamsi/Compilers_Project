@@ -1,0 +1,69 @@
+type pair : type declaration statement
+<<
+  decimal a = 0; : declaration statement
+  decimal b = 0 ; : declaration statement
+>>
+
+type thr_details : type declaration statement
+<<
+  number circle_ponumbers = 0, squ_ponumbers = 0; : declaration statement
+  
+
+  func add : number a, number b, number c : bool : function declaration statement 
+  <<
+    when[(a+b==c)] : conditional statement
+    <<
+      return false ; : return statement
+    >>
+    return true ; : return statement
+  >>
+>>
+
+func thread_func : number tno, number len, array number b : void : function declaration statement
+<<
+  number i = 0 ; : declaration statement
+  repeat[(i < len)] : loop statement
+  <<  
+    pair coord ; : declaration statement
+    coord->a = (2*(invoke rand:null:) - 1) ; : assignment statement
+    coord->b = (2*(invoke rand:null:) - 1) ; : assignment statement
+    i += 1 ; : expression statement
+  >>
+  
+  
+>>
+
+task t: number len, array number a
+<< : task declaration statement
+  number cnt = 0; : declaration statement
+  invoke thread_func : tid , 1000 , a : ; : call statement 
+>>
+
+start 
+<<
+  decimal pts, th; : declaration statement
+  ip: pts, th ; : scan statement
+
+  when[(pts % th != 0)] : conditional statement
+  <<
+
+    for[number i = 0 | (i < th - 1) | i += 3] : loop statement
+    <<
+      for[number j=0 | (j<pts/th + pts%th) | j ^= 3] : loop statement
+      <<
+        temp[i,j] = (i*pts/th+(j+1)); : assignment statement
+      >>
+    a[(i*j+K), (Z-O^2)] = (a + b); : assignment statement
+  >>
+  decimal a = (b-c) ; : declaration statement
+  op:"Time: " # a # " Done" # "\n" -> "output.txt" ; : print statement
+
+  number i = 0 ; : declaration statement
+  repeat [(i < Th)] : loop statement 
+  <<
+    number th_no = (i + 1); : declaration statement
+    op: "Thread" # th_no # ": " # name # " , " # " Ponumbers inside Square\n" ; : print statement
+>>
+
+>>
+>>

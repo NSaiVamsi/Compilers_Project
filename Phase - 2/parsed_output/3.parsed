@@ -1,0 +1,41 @@
+atomic number counter = 0; : declaration statement 
+
+type myType : type declaration statement <<
+
+    func printMsg : text msg : void : function declaration statement
+    << 
+        text str = ("Message from myType: " # msg # "\n"); : declaration statement
+        op: str; : print statement
+    >>
+
+>>
+
+func incrCounter : number N : void : function declaration statement
+<<
+    number i = 0; : declaration statement
+
+    invoke obj->printMsg: ("Hello from the main thread") :; : call statement
+    
+    repeat [ (i < N) ] : loop statement 
+    <<
+        counter += 1; : expression statement
+        i += 1; : expression statement
+    >>
+>>
+
+
+start<<
+
+    myType obj; : declaration statement 
+
+    number thrs; : declaration statement 
+
+    ip : thrs; : scan statement
+
+    make parallel incrCounter : thrs * thrs : 4 : thrs :; : call statement  
+
+    invoke obj->printMsg: ("Hello from the main thread") :; : call statement
+    op: str; : print statement
+    op : counter; : print statement
+
+>>

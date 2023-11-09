@@ -1,0 +1,161 @@
+reserved keyword: type
+Userdefined Datatype: pt
+Special Symbol: <<
+inbuilt datatype: decimal
+Identifier: x
+PUNCTUATION: ,
+Identifier: y
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: func
+Identifier: dist
+PUNCTUATION: :
+Userdefined Datatype: pt
+Identifier: a
+PUNCTUATION: ,
+Userdefined Datatype: pt
+Identifier: b
+PUNCTUATION: :
+inbuilt datatype: decimal
+Special Symbol: <<
+inbuilt datatype: decimal
+Identifier: d
+operator: =
+Special Symbol: (
+Special Symbol: (
+Identifier: a
+operator: ->
+Identifier: x
+operator: -
+Identifier: b
+operator: ->
+Identifier: x
+Special Symbol: )
+operator: ^
+Constant: 2
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: return
+Special Symbol: (
+Identifier: d
+operator: ^
+Constant: 1
+operator: /
+Constant: 2
+Special Symbol: )
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: task
+Identifier: temp
+PUNCTUATION: :
+Userdefined Datatype: pt
+Identifier: tempry
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: thr
+operator: =
+reserved keyword: tid
+PUNCTUATION: ,
+Identifier: i
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: repeat
+Special Symbol: [
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: array_size
+operator: -
+Constant: 1
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+inbuilt datatype: decimal
+Identifier: s
+operator: =
+reserved keyword: invoke
+Identifier: dist
+PUNCTUATION: :
+Identifier: tempry
+Special Symbol: [
+Constant: 1
+Special Symbol: ]
+PUNCTUATION: ,
+Identifier: tempry
+Special Symbol: [
+Constant: 2
+Special Symbol: ]
+PUNCTUATION: :
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Identifier: s
+operator: ->
+Constant: "log.txt"
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Constant: "\n"
+operator: ->
+Constant: "log.txt"
+PUNCTUATION: ;
+Identifier: i
+operator: +=
+Constant: 1
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: start
+Special Symbol: <<
+inbuilt datatype: text
+Identifier: a
+operator: =
+Constant: "Heyy!"
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: one
+operator: =
+Constant: "yes"
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: numbeur
+operator: =
+Constant: 1
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Identifier: a
+operator: ->
+Constant: "output.txt"
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Identifier: a
+PUNCTUATION: ;
+Userdefined Datatype: pt
+Identifier: testt
+PUNCTUATION: ;
+Identifier: testt
+operator: ->
+Identifier: x
+operator: =
+Constant: 1
+PUNCTUATION: ;
+Identifier: testt
+operator: ->
+Identifier: y
+operator: =
+Constant: 2
+PUNCTUATION: ;
+reserved keyword: make parallel
+Identifier: tasktemp
+PUNCTUATION: :
+Constant: 7
+PUNCTUATION: :
+Constant: 3
+PUNCTUATION: :
+Identifier: testt
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>

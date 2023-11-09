@@ -1,0 +1,335 @@
+reserved keyword: type
+Userdefined Datatype: pair
+Special Symbol: <<
+inbuilt datatype: decimal
+Identifier: a
+operator: =
+Constant: 0
+PUNCTUATION: ;
+inbuilt datatype: decimal
+Identifier: b
+operator: =
+Constant: 0
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: type
+Userdefined Datatype: thr_details
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: circle_ponumbers
+operator: =
+Constant: 0
+PUNCTUATION: ,
+Identifier: squ_ponumbers
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: func
+Identifier: add
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: a
+PUNCTUATION: ,
+inbuilt datatype: number
+Identifier: b
+PUNCTUATION: ,
+inbuilt datatype: number
+Identifier: c
+PUNCTUATION: :
+inbuilt datatype: bool
+Special Symbol: <<
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+Identifier: a
+operator: +
+Identifier: b
+operator: ==
+Identifier: c
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: return
+Constant: false
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: return
+Constant: true
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: func
+Identifier: thread_func
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: tno
+PUNCTUATION: ,
+inbuilt datatype: number
+Identifier: len
+PUNCTUATION: ,
+inbuilt datatype: array number
+Identifier: b
+PUNCTUATION: :
+inbuilt datatype: void
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: repeat
+Special Symbol: [
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: len
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+Userdefined Datatype: pair
+Identifier: coord
+PUNCTUATION: ;
+Identifier: coord
+operator: ->
+Identifier: a
+operator: =
+Special Symbol: (
+Constant: 2
+operator: *
+Special Symbol: (
+reserved keyword: invoke
+Identifier: rand
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+Special Symbol: )
+operator: -
+Constant: 1
+Special Symbol: )
+PUNCTUATION: ;
+Identifier: coord
+operator: ->
+Identifier: b
+operator: =
+Special Symbol: (
+Constant: 2
+operator: *
+Special Symbol: (
+reserved keyword: invoke
+Identifier: rand
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+Special Symbol: )
+operator: -
+Constant: 1
+Special Symbol: )
+PUNCTUATION: ;
+Identifier: i
+operator: +=
+Constant: 1
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+reserved keyword: task
+Identifier: t
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: len
+PUNCTUATION: ,
+inbuilt datatype: array number
+Identifier: a
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: cnt
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: invoke
+Identifier: thread_func
+PUNCTUATION: :
+reserved keyword: tid
+PUNCTUATION: ,
+Constant: 1000
+PUNCTUATION: ,
+Identifier: a
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: start
+Special Symbol: <<
+inbuilt datatype: decimal
+Identifier: pts
+PUNCTUATION: ,
+Identifier: th
+PUNCTUATION: ;
+reserved keyword: ip
+PUNCTUATION: :
+Identifier: pts
+PUNCTUATION: ,
+Identifier: th
+PUNCTUATION: ;
+reserved keyword: when
+Special Symbol: [
+Special Symbol: (
+Identifier: pts
+operator: %
+Identifier: th
+operator: !=
+Constant: 0
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: th
+operator: -
+Constant: 1
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 3
+Special Symbol: ]
+Special Symbol: <<
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: j
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: j
+operator: <
+Identifier: pts
+operator: /
+Identifier: th
+operator: +
+Identifier: pts
+operator: %
+Identifier: th
+Special Symbol: )
+Special Symbol: |
+Identifier: j
+operator: ^=
+Constant: 3
+Special Symbol: ]
+Special Symbol: <<
+Identifier: temp
+Special Symbol: [
+Identifier: i
+PUNCTUATION: ,
+Identifier: j
+Special Symbol: ]
+operator: =
+Special Symbol: (
+Identifier: i
+operator: *
+Identifier: pts
+operator: /
+Identifier: th
+operator: +
+Special Symbol: (
+Identifier: j
+operator: +
+Constant: 1
+Special Symbol: )
+Special Symbol: )
+PUNCTUATION: ;
+Special Symbol: >>
+Identifier: a
+Special Symbol: [
+Special Symbol: (
+Identifier: i
+operator: *
+Identifier: j
+operator: +
+Identifier: K
+Special Symbol: )
+PUNCTUATION: ,
+Special Symbol: (
+Identifier: Z
+operator: -
+Identifier: O
+operator: ^
+Constant: 2
+Special Symbol: )
+Special Symbol: ]
+operator: =
+Special Symbol: (
+Identifier: a
+operator: +
+Identifier: b
+Special Symbol: )
+PUNCTUATION: ;
+Special Symbol: >>
+inbuilt datatype: decimal
+Identifier: a
+operator: =
+Special Symbol: (
+Identifier: b
+operator: -
+Identifier: c
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Constant: "Time: "
+Special Symbol: #
+Identifier: a
+Special Symbol: #
+Constant: " Done"
+Special Symbol: #
+Constant: "\n"
+operator: ->
+Constant: "output.txt"
+PUNCTUATION: ;
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+PUNCTUATION: ;
+reserved keyword: repeat
+Special Symbol: [
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: Th
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: th_no
+operator: =
+Special Symbol: (
+Identifier: i
+operator: +
+Constant: 1
+Special Symbol: )
+PUNCTUATION: ;
+reserved keyword: op
+PUNCTUATION: :
+Constant: "Thread"
+Special Symbol: #
+Identifier: th_no
+Special Symbol: #
+Constant: ": "
+Special Symbol: #
+Identifier: name
+Special Symbol: #
+Constant: " , "
+Special Symbol: #
+Constant: " Ponumbers inside Square\n"
+PUNCTUATION: ;
+Special Symbol: >>
+Special Symbol: >>
+Special Symbol: >>

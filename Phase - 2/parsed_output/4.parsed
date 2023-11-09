@@ -1,0 +1,224 @@
+
+number K; : declaration statement
+number N; : declaration statement
+number n; : declaration statement
+
+array number sudoko[100,100]; : declaration statement 
+
+type datak : type declaration statement
+<<
+  number tno ; : declaration statement
+  text typee ; : declaration statement
+>>
+
+type return_single : type declaration statement
+<<
+  text str ; : declaration statement 
+  bool valid; : declaration statement
+
+  func compare : number a, number b : bool : function declaration statement
+  <<
+    when[(in->str == "Hi")] : conditional statement
+    <<
+      valid = false ; : assignment statement
+    >>
+  return ~(valid) ; : return statement
+  >>
+>>
+
+type return_full : type declaration statement
+<<
+  array text a[300] ; : declaration statement 
+  bool valid ; : declaration statement 
+>>
+
+
+
+func check_if_present : array number check_value, number index, number value : bool : function declaration statement 
+<<
+
+  bool ret = false; : declaration statement
+  for[number i = 0 | (i < index) | i+=1] : loop statement
+  <<
+    when[( check_value[i] == value)] : conditional statement 
+    <<
+      ret = true; : assignment statement
+      break;
+    >>
+  >>
+  return ret; : return statement
+>>
+
+
+
+func check_given_values : number I , number J , number tno , text typee : return_single : function declaration statement 
+<<
+  array number check_values[N]; : declaration statement
+  number check = 1; : declaration statement
+  number index = 0; : declaration statement
+  number num = 0; : declaration statement 
+  when[(typee == "row")] : conditional statement
+  <<
+    num = (I + 1); : assignment statement
+    for[number j = 0 | (j < N) | j +=1] : loop statement
+    <<
+      when[invoke check_if_present : check_values,index,sudoko[I,j] :] : conditional statement
+      <<
+        check = 0; : assignment statement
+        break;
+      >>
+      default : conditional statement
+      <<
+        check_values[index] = sudoko[I,j]; : assignment statement
+        index += 1; : expression statement
+      >>
+    >>
+  >>
+
+  <<
+    number a = 9; : declaration statement
+    a *= 10 ; : expression statement
+  >>
+
+  when[(typee == "column")] : conditional statement
+  <<
+    num = (J + 1); : assignment statement
+    for[number i = 0 | (i < N) | i +=1] : loop statement
+    <<
+      when[invoke check_if_present : check_values,index,sudoko[i,J] : ] : conditional statement
+      <<
+        check = 0; : assignment statement
+        break;
+      >>
+      default : conditional statement
+      <<
+        check_values[index] = sudoko[i,J]; : assignment statement
+        index += 1; : expression statement
+      >>
+    >>
+  >>
+  else when[(typee == "grid")] : conditional statement
+  <<
+    num = (J/n + 1 + I) ; : assignment statement
+    for[number i=0 | (i < n) | i+=1] : loop statement
+    <<
+      for[number j=0 | (j < n) | j+=1] : loop statement
+      <<  
+        when[invoke check_if_present: check_values, index, sudoko[I+i,J+j] : ] : conditional statement
+        <<
+          check = 0; : assignment statement
+          break;
+        >>
+        default : conditional statement 
+        <<
+          check_values[index] = sudoko[I+i,J+j]; : assignment statement
+          index += 1; : expression statement
+        >>
+      >>
+    >>
+  >>
+
+  return_single r ; : declaration statement
+  text str = ""; : declaration statement
+  str = ("Thread" # tno # " checks " # typee # " " # numberrr # " and is ") ; : assignment statement
+  when[(check == 0)] : conditional statement
+  <<
+    str = (str # "invalid") ; : assignment statement
+    r->valid = false ; : assignment statement
+  >>
+  default : conditional statement
+  <<
+    str = (str # "valid"); : assignment statement
+    r->valid = true ; : assignment statement
+  >>
+
+  r->str = str; : assignment statement
+  return r; : return statement
+>>
+
+
+func function : datak dat : void : function declaration statement
+<<
+
+  ret->valid = true; : assignment statement
+  when[(dat->typee == "row")] : conditional statement
+  <<
+    for[number I = (dat->tno - 1) | (I < N) | I += K] : loop statement
+    <<
+      return_single r = invoke check_given_values:0,J,(dat->tno),(dat->typee):; : declaration statement
+     
+      ret->valid = (ret->valid && r->valid); : assignment statement
+    >>
+  >>
+  else when[(dat->typee == "column")] : conditional statement
+  <<
+    for[number J = (dat->tno - 1) | (J < N) | J += K] : loop statement
+    <<
+      return_single r = invoke check_given_values:0,J,(dat->tno),(dat->typee):; : declaration statement
+     
+      ret->valid = (ret->valid && r->valid); : assignment statement
+    >>
+  >>
+  else when[(dat->typee == "grid")] : conditional statement
+  <<
+    array number I[N]; : declaration statement 
+    array number J[N]; : declaration statement 
+    for[number i=0 | (i < n) | i += 1] : loop statement
+    <<
+      for[ number j=0 | (j < n) | j += 1] : loop statement
+      <<
+        I[(N*j + i)] = (n * j) ; : assignment statement
+        J[(N*j + i)] = (n * i) ; : assignment statement
+      >>
+    >>
+
+    for[number grid_no = (dat->tno) | (grid_no <= N) | grid_no += K] : loop statement
+    <<
+      return_single r = invoke check_given_values:0,J,(dat->tno),(dat->typee) :; : declaration statement
+      
+      ret->valid = (ret->valid && r->valid); : assignment statement
+    >>
+  >>
+
+  return void; : return statement
+>>
+
+task finder : null : task declaration statement
+<<
+  datak dat ; : declaration statement
+  dat->tno = tid ; : assignment statement
+  dat->typee = "row" ; : assignment statement
+  invoke function : dat :; : call statement
+>>
+
+start 
+<<
+  ip->"input.txt": K, N ; : scan statement
+  n = (N^(1.0/2)); : assignment statement
+  for[number i = 0 | (i < N) | i += 1] : loop statement
+  <<
+    array number temp[1000]; : declaration statement
+    for[number j = 0 | (j < N) | j += 1] : loop statement
+    <<
+      number val = 0; : declaration statement
+      ip->"input.txt": val ; : scan statement
+      temp[j] = val ; : assignment statement
+    >>
+  sudoko[i] = temp ; : assignment statement
+  >>
+
+  make parallel finder:K:10: null :; : call statement
+  decimal timee = get->time; : declaration statement
+
+  
+  op: "Total time taken is: " # timee ; : print statement
+  text s = "output_pthread.txt" ; : declaration statement
+  when[(sudoko_check == false)] : conditional statement
+  <<
+    op: "sudoko is invalid" -> s ; : print statement
+  >>
+  default : conditional statement
+  <<
+    op: "sudoko is valid" -> s ; : print statement
+  >>
+>>

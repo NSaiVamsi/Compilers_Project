@@ -1,0 +1,112 @@
+reserved keyword: func
+Identifier: factorial
+PUNCTUATION: :
+inbuilt datatype: number
+Identifier: b
+PUNCTUATION: :
+inbuilt datatype: number
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: res
+operator: =
+Constant: 1
+PUNCTUATION: ,
+Identifier: i
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+Special Symbol: (
+Identifier: i
+operator: =
+Constant: 1
+Special Symbol: )
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <=
+Identifier: b
+Special Symbol: )
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: )
+Special Symbol: ]
+Special Symbol: <<
+Identifier: res
+operator: *=
+Identifier: i
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: return
+Identifier: res
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: task
+Identifier: parallelFact
+PUNCTUATION: :
+reserved keyword: null
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: thr
+operator: =
+reserved keyword: tid
+PUNCTUATION: ;
+reserved keyword: invoke
+Identifier: factorial
+PUNCTUATION: :
+Identifier: thr
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: start
+Special Symbol: <<
+inbuilt datatype: number
+Identifier: n
+operator: =
+Constant: 10
+PUNCTUATION: ;
+inbuilt datatype: array number
+Identifier: num
+Special Symbol: [
+Identifier: n
+Special Symbol: ]
+PUNCTUATION: ;
+reserved keyword: for
+Special Symbol: [
+inbuilt datatype: number
+Identifier: i
+operator: =
+Constant: 0
+Special Symbol: |
+Special Symbol: (
+Identifier: i
+operator: <
+Identifier: n
+Special Symbol: )
+Special Symbol: |
+Identifier: i
+operator: +=
+Constant: 1
+Special Symbol: ]
+Special Symbol: <<
+Identifier: num
+Special Symbol: [
+Identifier: i
+Special Symbol: ]
+operator: =
+Identifier: i
+PUNCTUATION: ;
+Special Symbol: >>
+reserved keyword: make parallel
+Identifier: parallelFact
+PUNCTUATION: :
+Constant: 5
+PUNCTUATION: :
+Constant: 2
+PUNCTUATION: :
+reserved keyword: null
+PUNCTUATION: :
+PUNCTUATION: ;
+Special Symbol: >>
